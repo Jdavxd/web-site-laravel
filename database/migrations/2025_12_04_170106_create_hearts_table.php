@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('hearts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('uder_id')->constrained('uders')->onDelete('cascade');
+            $table->morphs('heartable');
             $table->timestamps();
         });
     }
