@@ -1,14 +1,17 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\QuestionController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use App\Livewire\Settings\TwoFactor;
+use App\Models\Question;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
+Route::get('questions/{question}', [QuestionController::class, 'show'])->name('questions.show');
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
