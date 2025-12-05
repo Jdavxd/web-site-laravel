@@ -18,3 +18,4 @@ class PageController extends Controller
         ]);
     }    
 }
+
